@@ -2,115 +2,121 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Dr. Alex Johnson
-  given: Alex
-  family: Johnson
-  alternate: ''  # Example: 王伟
-  pronunciation: ''  # Example: Wáng Wěi
+  display: Sobhan Kasaei
+  given: Sobhan
+  family: Kasaei
+#  alternate: ''  
+#  pronunciation: ''  
   pronouns: he/him
-postnominals:
-  - PhD
-  - MIEEE
+
+# postnominals:
+#   - PhD
+#   - MIEEE
+
 status:
-  icon: "☕️"
-role: Senior AI Research Scientist
+  icon: "🎓"
+role: Industrial Engineering Student
 bio: |
-  Alex Johnson is a Senior AI Research Scientist at Meta AI. His research
-  has been published in top conferences like NeurIPS and ICML, with over
-  10,000 citations. Alex is passionate about pushing the boundaries of AI
-  while ensuring ethical development.
+  I am currently an undergraduate student ranking within the top 10% of my program at Sharif University of Technology. My academic journey is driven by a deep fascination with modeling real-world challenges mathematically and solving them using advanced algorithms.
 
 affiliations:
-  - name: Meta AI
-    url: https://ai.meta.com/
+  - name: Sharif University of Technology
+    url: https://en.sharif.edu/
 
 links:
   - icon: at-symbol
-    url: mailto:alex.johnson@example.com
+    url: mailto:sobhan.kasa@gmail.com
     label: E-mail Me
-  - icon: brands/x
-    url: https://x.com/example
+#  - icon: brands/x
+#    url: https://x.com/example
   - icon: brands/github
-    url: https://github.com/example
+    url: https://github.com/RealSobhan
   - icon: brands/linkedin
-    url: https://www.linkedin.com/in/example/
-  - icon: academicons/google-scholar
-    url: https://scholar.google.com/citations?user=example
-  - icon: academicons/orcid
-    url: https://orcid.org/0000-0002-1825-0097
+    url: https://www.linkedin.com/in/your-linkedin-id/
+#  - icon: academicons/google-scholar
+#    url: https://scholar.google.com/citations?user=example
+#  - icon: academicons/orcid
+#    url: https://orcid.org/0000-0002-1825-0097
 
 interests:
-  - Large Language Models
-  - Computer Vision
-  - Reinforcement Learning
-  - AI Ethics
+  - Operations Research
+  - Data Science & Machine Learning
+  - Optimization (Meta-heuristics & Exact Methods)
+  - Stochastic Systems
 
 education:
-  - degree: PhD Computer Science
-    institution: Stanford University
-    start: 2015-09-01
-    end: 2019-06-30
+#  - degree: PhD in Operations Management
+#    institution: Target University
+#    start: 2026-09-01
+#    end: 2031-06-30
+#    summary: |
+#      Thesis on...
+#    button:
+#      text: Download dissertation
+#      url: /resume.pdf
+#      icon: hero/arrow-down-tray
+#  - degree: MS in Data Science / Statistics
+#    institution: Target University
+#    start: 2026-09-01
+#    end: 2028-05-31
+  - degree: B.Sc. in Industrial Engineering (Minor in Economics)
+    institution: Sharif University of Technology
+    start: 2021-09-23
     summary: |
-      Thesis on scaling laws for neural language models. Published 5 papers in NeurIPS and ICML.
+      Currently ranking within the top 10% of the program. Focused on operations research, data science, and applying machine learning algorithms to solve complex optimization problems.
     button:
-      text: Download dissertation
+      text: Download CV
       url: /resume.pdf
       icon: hero/arrow-down-tray
-  - degree: MS Computer Science
-    institution: Carnegie Mellon University
-    start: 2013-09-01
-    end: 2015-05-31
-  - degree: BS Computer Science
-    institution: MIT
-    start: 2009-09-01
-    end: 2013-05-31
 
-experience:
-  - role: Senior AI Research Scientist
-    org: Meta AI
-    start: 2020-01-01
-    summary: |
-      Leading research on multimodal AI systems. Contributed to Llama 2 and other open-source models.
-    button:
-      text: View portfolio
-      url: /
-      icon: hero/arrow-down-tray
-  - role: AI Research Intern
-    org: OpenAI
-    start: 2019-06-01
-    end: 2019-12-31
-    summary: |
-      Worked on GPT-3 scaling. Co-authored paper on prompt engineering.
+# experience:
+#   - role: Research Assistant
+#     org: Sharif University of Technology
+#     start: 2024-01-01
+#     summary: |
+#       Working on...
+#     button:
+#       text: View portfolio
+#       url: /
+#       icon: hero/arrow-down-tray
+#   - role: Data Science Intern
+#     org: Company Name
+#     start: 2023-06-01
+#     end: 2023-09-01
+#     summary: |
+#       Worked on...
 
 skills:
   - name: Technical Skills
     items:
       - label: Python
         level: 5
+      - label: PyTorch
+        level: 4
+      - label: Gurobi
+        level: 5
       - label: Machine Learning
-        level: 5
-      - label: Cloud Computing
         level: 4
-  - name: Research & Communication
+  - name: Research & Modeling
     items:
-      - label: Academic Writing
+      - label: Mathematical Optimization
         level: 5
-      - label: Conference Presentations
-        level: 4
-      - label: Grant Proposals
+      - label: Meta-heuristic Algorithms
+        level: 5
+      - label: Data Analysis
         level: 4
 
 languages:
-  - name: English
+  - name: Persian
     level: 5
     label: Native
-  - name: Spanish
+  - name: English
     level: 4
-    label: Fluent
+    label: Professional
 
-awards:
-  - title: Best Paper Award
-    awarder: NeurIPS
-    date: "2022-12-01"
-    summary: Awarded for groundbreaking work on efficient training of large models.
-    icon: hero/trophy
+# awards:
+#   - title: Best Paper Award
+#     awarder: Conference Name
+#     date: "2025-12-01"
+#     summary: Awarded for...
+#     icon: hero/trophy
