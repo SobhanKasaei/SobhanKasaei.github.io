@@ -49,19 +49,19 @@ sections:
     design:
       columns: '1'
 
-  # --- بخش اضافه شده برای پروژه‌ها (مهم برای اپلای) ---
+ #  Projects
   - block: collection
     id: projects
     content:
       title: Featured Projects
       filters:
         folders:
-          - project
+          - projects
     design:
       view: article-grid
       columns: 2
 
-  # - Commented section for future (Maybe)
+  #  Commented section for future (Maybe)
 
   # - block: collection
   #   id: papers
