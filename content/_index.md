@@ -12,7 +12,7 @@ design:
 sections:
   - block: resume-biography-3
     content:
-      # Choose a user profile to display (a folder name within `content/authors/`)
+      # Choose a user profile to display (a folder name within `content/authors/` or `data/authors/`)
       username: me
       text: ''
       # Show a call-to-action button under your biography? (optional)
@@ -28,15 +28,20 @@ sections:
       background:
         gradient_mesh:
           enable: true
-
       # Name heading sizing to accommodate long or short names
       name:
         size: md # Options: xs, sm, md, lg (default), xl
-
       # Avatar customization
       avatar:
         size: medium # Options: small (150px), medium (200px, default), large (320px), xl (400px), xxl (500px)
         shape: circle # Options: circle (default), square, rounded
+
+  # --- Added block for displaying Skills and Languages from me.yaml ---
+  - block: skills
+    content:
+      username: me
+    design:
+      columns: '1'
         
   - block: markdown
     content:
@@ -49,7 +54,7 @@ sections:
     design:
       columns: '1'
 
- #  Projects
+  # Projects section
   - block: collection
     id: projects
     content:
@@ -61,7 +66,7 @@ sections:
       view: article-grid
       columns: 2
 
-  #  Commented section for future (Maybe)
+  # --- Commented sections for future use ---
 
   # - block: collection
   #   id: papers
