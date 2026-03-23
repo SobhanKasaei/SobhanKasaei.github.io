@@ -12,5 +12,4 @@ title: Publications
 ---
 
 ### 🚧 Work in Progress...
-Currently, there are no published papers to display here. However, workers are actively optimizing the mathematical models and compiling the research! 😉 
-Check back soon for upcoming preprints.
+Currently, there are no published papers to display here. However, workers are actively compiling the research! ;)
