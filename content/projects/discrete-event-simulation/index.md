@@ -11,7 +11,7 @@ date: '2026-03-22'
 
 # تنظیمات عکس هدر (نمودار بازه اطمینان را به عنوان عکس اصلی می‌گذاریم)
 image:
-  caption: 'Steady-State Waiting Time Analysis with 95% Confidence Intervals'
+  caption: ''
   focal_point: 'Smart'
   filename: 'steady-state-ci.png'
 ---
