@@ -9,17 +9,20 @@ tags:
   - Healthcare
 date: '2025-12-01'
 
-# Image Setting
+# تنظیمات عکس هدر (نمودار بازه اطمینان را به عنوان عکس اصلی می‌گذاریم)
 image:
-  caption: 'Statistical comparison of waiting times across different system configurations.'
+  caption: 'Steady-State Waiting Time Analysis with 95% Confidence Intervals'
   focal_point: 'Smart'
+  filename: 'steady-state-ci.png'
 ---
 
 ## Project Overview
 This project focuses on the stochastic modeling and optimization of patient flow within a multi-department hospital. Rather than using commercial simulation software or standard libraries, **I developed a custom Discrete-Event Simulation (DES) engine entirely from scratch using Python.** The core objective was to model the complex routing of Elective and Non-Elective (Emergency) patients through various stages—including Pre-Surgical wards, Laboratories, Operating Rooms (OR), and Post-Surgical units (Ward, ICU, CCU)—to identify bottlenecks and improve overall system stability.
 
+{{< figure src="hospital-flowchart.svg" title="Event-Driven Logic: Patient Arrival and Process Flow" caption="This flowchart illustrates the core patient arrival event that triggers the simulation logic. It maps the subsequent stochastic routing, priority-based queuing for non-elective (emergency) cases, and the step-by-step transition of entities through the hospital's constrained resources." >}}
+
 ## Mathematical & Statistical Framework
-Building a custom simulation engine from the ground up requires rigorous mathematical validation, particularly for analyzing stochastic processes and estimating steady-state parameters. 
+Building a custom simulation engine from the ground up requires rigorous mathematical validation, particularly for analyzing stochastic processes, estimating steady-state parameters, and comparing alternative configurations.
 
 **1. Output Analysis & Confidence Intervals:**
 To ensure the reliability of Key Performance Indicators (KPIs) such as the average waiting time, I implemented steady-state statistical analysis. For $n$ independent simulation replications, the $(1 - \alpha)100\%$ confidence interval for the expected waiting time $\mathbb{E}[W]$ is calculated as:
@@ -28,17 +31,27 @@ $$ \bar{W} \pm t_{\alpha/2, n-1} \frac{S}{\sqrt{n}} $$
 
 Where $\bar{W}$ is the sample mean of waiting times, $S$ is the sample standard deviation across replications, and $t_{\alpha/2, n-1}$ represents the critical value from the Student's t-distribution. This rigorous bounding was dynamically computed in Python and visualized using R.
 
+{{< figure src="steady-state-ci.png" title="Steady-State Mean Waiting Time Analysis" caption="Visualizing the moving average of total waiting time with bounded 95% confidence intervals, comparing current and proposed system configurations." >}}
+
 **2. Time-Average Queue Evaluation:**
 The core logic of the simulation continuously evaluates the expected queue length over time $T$. The time-average number of patients in the queue, a critical metric for capacity planning, is computed as the integral of the system state:
 
 $$ \hat{L}_q = \frac{1}{T} \int_{0}^{T} Q(t) dt $$
 
-where $Q(t)$ is a discrete-state, continuous-time stochastic process representing the exact number of patients waiting at time $t$. This continuous tracking allows for highly precise bottleneck identification compared to simple discrete averages.
+where $Q(t)$ is a discrete-state, continuous-time stochastic process representing the exact number of patients waiting at time $t$. 
 
-## Custom Methodology & Model Development
-* **Custom Simulation Core:** Programmed the event calendar, state variables, and time-advance mechanisms using core Python and Object-Oriented Programming (OOP) principles.
-* **Complex Routing & Prioritization:** Incorporated strict priority logic for Non-Elective patients and modeled complex probabilistic transition matrices between hospital departments.
-* **Statistical Output Analysis (R & Python):** Developed custom statistical classes in Python to compute mean, standard deviation, and confidence intervals. Used **R** (`plotrix`) to generate rigorous statistical visualizations, including bounded confidence intervals across steady-state time frames.
+**3. Statistical Comparison of Alternative Systems:**
+To rigorously validate the superiority of the proposed resource reallocation scenario (System 2) over the baseline (System 1), a Two-Sample Welch's T-test for unequal variances was implemented. The confidence interval for the difference in expected performance metrics ($\mu_1 - \mu_2$) is constructed as:
+
+$$ (\bar{W}_1 - \bar{W}_2) \pm t_{\alpha/2, \nu} \sqrt{\frac{S_1^2}{n_1} + \frac{S_2^2}{n_2}} $$
+
+Where the adjusted degrees of freedom ($\nu$) is calculated using the robust Welch-Satterthwaite approximation:
+
+$$ \nu = \frac{(S_1^2/n_1 + S_2^2/n_2)^2}{\frac{(S_1^2/n_1)^2}{n_1-1} + \frac{(S_2^2/n_2)^2}{n_2-1}} $$
+
+If this confidence interval strictly excludes zero, it mathematically guarantees that the observed improvements (e.g., reduced waiting times) are due to the strategic changes in system capacity, rather than mere stochastic noise.
+
+{{< figure src="scenario-comparison.png" title="KPI Comparison: Baseline vs. Optimized Capacity Allocation" caption="Statistical comparison demonstrating the impact of resource reallocation on maximum queue lengths across different hospital departments." >}}
 
 ## System Analysis & Optimization Results
 By comparing the baseline system with proposed what-if scenarios, the simulation provided actionable insights for hospital management:
@@ -46,11 +59,4 @@ By comparing the baseline system with proposed what-if scenarios, the simulation
 * **Strategic Resource Reallocation:** Discovered significant underutilization of Operating Room (OR) beds. Proposed a strategic reduction in OR capacity to reallocate financial resources toward expanding the bottlenecks (Pre-Surgical and Ward beds).
 * **Performance Improvement:** The optimized scenario demonstrated a statistically significant reduction in maximum queue lengths and average waiting times.
 
----
-### System Performance Visualization
-
-*(Note: Image names below should we replaced with the exact file names you upload to GitHub)*
-
-{{< figure src="r-plot-image.png" title="Steady-State Average Waiting Times with 95% Confidence Intervals" >}}
-
-{{< figure src="kpi-comparison-image.png" title="Comparison of Maximum Queue Lengths: Baseline vs. Optimized Capacity Allocation" >}}
+*(Note: The full Python source code, R visualization scripts, and the comprehensive project report are available upon request.)*
