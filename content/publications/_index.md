@@ -1,5 +1,5 @@
-# ---
-# title: Publications
+---
+title: Publications
 # cms_exclude: true
 
 # View.
@@ -9,8 +9,8 @@
 # banner:
 #   caption: ''
 #   image: ''
-# ---
+---
 
 ### 🚧 Work in Progress...
-Currently, there are no published papers to display here. However, workers are actively compiling the research! ;)
-
+Currently, there are no published papers to display here. However, workers are actively optimizing the mathematical models and compiling the research! 😉 
+Check back soon for upcoming preprints.
