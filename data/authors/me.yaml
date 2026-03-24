@@ -49,22 +49,7 @@ interests:
   - Sequential Decision Making
   - Operations Research
 
-
 education:
-#  - degree: PhD in Operations Management
-#    institution: Target University
-#    start: 2026-09-01
-#    end: 2031-06-30
-#    summary: |
-#      Thesis on...
-#    button:
-#      text: Download dissertation
-#      url: /resume.pdf
-#      icon: hero/arrow-down-tray
-#  - degree: MS in Data Science / Statistics
-#    institution: Target University
-#    start: 2026-09-01
-#    end: 2028-05-31
   - degree: B.Sc. in Industrial Engineering (Minor in Economics)
     institution: Sharif University of Technology
     start: 2021-09-23
@@ -75,22 +60,38 @@ education:
       url: uploads/SobhanKasaei_CV.pdf
       icon: hero/arrow-down-tray
 
-# experience:
-#   - role: Research Assistant
-#     org: Sharif University of Technology
-#     start: 2024-01-01
-#     summary: |
-#       Working on...
-#     button:
-#       text: View portfolio
-#       url: /
-#       icon: hero/arrow-down-tray
-#   - role: Data Science Intern
-#     org: Company Name
-#     start: 2023-06-01
-#     end: 2023-09-01
-#     summary: |
-#       Worked on...
+experience:
+  - role: Head Teaching Assistant - Engineering Statistics
+    org: Sharif University of Technology
+    start: 2024-01-01
+    end: ""
+    summary: |
+      Served as Head TA for three consecutive semesters (Spring 2024, Fall 2024, Spring 2025). 
+      - **Leadership:** Supervised a team of TAs, delegated responsibilities, and managed the overall grading workflow.
+      - **Course Design:** Designed and implemented a novel course project combining core statistics with advanced supplementary topics.
+      - **Instruction:** Led weekly review and problem-solving sessions for large cohorts of students.
+    icon: hero/chart-bar
+
+  - role: Head Teaching Assistant - Fundamentals of Python
+    org: Sharif University of Technology
+    start: 2023-09-01
+    end: 2024-01-01
+    summary: |
+      - **Course Management:** Managed the overall course workflow, including consolidating final grades.
+      - **Coordination:** Co-designed and coordinated programming project assignments.
+      - **Supervision:** Supervised TAs in evaluating assignments, quizzes, and exams to ensure accurate and timely grading.
+    icon: hero/code-bracket
+
+  - role: Teaching Assistant - Quantitative & Computational Courses
+    org: Sharif University of Technology
+    start: 2022-09-01
+    end: ""
+    summary: |
+      Consistently selected as a TA for advanced mathematical, programming, and economic courses, including:
+      - **Operations Research II** & **Data Mining Basics and its Applications**
+      - **Advanced Programming** - **General Economics** & **Microeconomics**
+      Responsibilities included designing assessments, holding problem-solving sessions, and grading projects.
+    icon: hero/academic-cap
 
 skills:
   - name: Technical Skills
@@ -129,8 +130,8 @@ languages:
     label: Professional
 
 # awards:
-#   - title: Best Paper Award
-#     awarder: Conference Name
-#     date: "2025-12-01"
-#     summary: Awarded for...
+#   - title: Academic Excellence (GPA 19.74/20)
+#     awarder: Sharif University of Technology
+#     date: "2024-06-01"
+#     summary: Achieved a perfect 4.0/4.0 GPA in the last academic year, consistently ranking among the top students in highly quantitative courses.
 #     icon: hero/trophy
