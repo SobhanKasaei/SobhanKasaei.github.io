@@ -1,5 +1,9 @@
-# Each entry: title, authors (your name is bolded automatically), year, status, and optional links.
-# Status examples: In Preparation, Under Review at <Journal>, Accepted at <Conference>.
+# Each entry: title, authors (your name is bolded automatically), year, status, and optional fields.
+# status: In Preparation, Under Review, Accepted, Published, ...
+# venue (optional): journal or conference name, shown in italics before the status.
+# abstract (optional): 2-3 sentences; shown behind an "Abstract" button on the Publications page only.
+#   abstract: >-
+#     First sentence. Second sentence.
 # Links (all optional): paper, arxiv, ssrn, code, slides
 
 - title: "Unidirectional Material-Handling Network Design with Empty Flows in Unequal-Area Facility Layout: Mathematical Formulation, Structural Analysis, and a Single-Solve Scalarization Method"
