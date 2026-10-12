@@ -1,5 +1,5 @@
 ---
-title: About
+title: Sobhan Kasaei
 heading: About Me
 permalink: /
 ---
