@@ -1,6 +1,6 @@
 /* ==========================================================================
    Sobhan Kasaei: site styles
-   Palette follows the SK monogram (navy + gold).
+   Palette: ink and denim (near-black text, one blue family for links and accents).
    ========================================================================== */
 
 /* Self-hosted fonts (SIL Open Font License), latin subset */
@@ -28,7 +28,7 @@
   --heading: #0e1116;
   --link: #1c4f8c;
   --link-underline: rgba(28, 79, 140, 0.35);
-  --gold: #2f66a8;
+  --accent: #2f66a8;
   --rule: #e5e7eb;
   --photo-bg: #e9ecf1;
   --selection: #c0303f;
@@ -52,27 +52,30 @@
 
 :root { color-scheme: light; }
 
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #121418;
-  --surface: #1a1d22;
-  --text: #e3e5e9;
-  --muted: #9ba2ad;
-  --heading: #f4f5f7;
-  --link: #8db4e6;
-  --link-underline: rgba(141, 180, 230, 0.4);
-  --gold: #6b98d0;
-  --rule: #2a2e35;
-  --photo-bg: #1a1d22;
-  --selection: #ef6b76;
-  --header-bg: #20252e;
-  --header-material: rgba(32, 37, 46, 0.78);
-  --header-text: #c9ced6;
-  --header-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  --header-fade: rgba(32, 37, 46, 0.8);
-  --header-accent: #6b98d0;
-  --header-control: #454d5a;
-  --header-hover: rgba(255, 255, 255, 0.07);
+/* Dark tokens apply on screen only, so printing always uses the light palette */
+@media screen {
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #121418;
+    --surface: #1a1d22;
+    --text: #e3e5e9;
+    --muted: #9ba2ad;
+    --heading: #f4f5f7;
+    --link: #8db4e6;
+    --link-underline: rgba(141, 180, 230, 0.4);
+    --accent: #6b98d0;
+    --rule: #2a2e35;
+    --photo-bg: #1a1d22;
+    --selection: #ef6b76;
+    --header-bg: #20252e;
+    --header-material: rgba(32, 37, 46, 0.78);
+    --header-text: #c9ced6;
+    --header-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+    --header-fade: rgba(32, 37, 46, 0.8);
+    --header-accent: #6b98d0;
+    --header-control: #454d5a;
+    --header-hover: rgba(255, 255, 255, 0.07);
+  }
 }
 
 /* ---------- Base ---------- */
@@ -82,6 +85,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* #section links and the skip link land below the sticky bar (bar + its scroll-edge fade); instant, never smooth */
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -109,7 +114,7 @@ h2 {
   margin: 2.75rem 0 1.1rem;
   padding-bottom: 0.45rem;
   border-bottom: 1px solid var(--rule);
-  background: linear-gradient(var(--gold), var(--gold)) left bottom / 44px 2px no-repeat;
+  background: linear-gradient(var(--accent), var(--accent)) left bottom / 44px 2px no-repeat;
 }
 
 h3 {
@@ -132,7 +137,6 @@ a {
   text-underline-offset: 3px;
   transition: text-decoration-color 150ms ease-out, color 150ms ease-out, opacity 150ms ease-out;
 }
-a:hover { text-decoration-color: currentColor; }
 /* Respond on press, not on release */
 a:active { opacity: 0.6; transition: opacity 0s; }
 a, button { -webkit-tap-highlight-color: transparent; }
@@ -270,8 +274,9 @@ code {
   white-space: nowrap;
   border-radius: 6px;
 }
-.site-nav a:hover { color: var(--heading); }
 .site-nav a[aria-current="page"] { color: var(--heading); }
+/* Invisible ~44px touch area */
+.site-nav a::before { content: ""; position: absolute; inset: -4px 0; }
 .site-nav a[aria-current="page"]::after {
   content: "";
   position: absolute;
@@ -300,15 +305,14 @@ code {
 }
 /* Invisible padding so the tap target is ~44px */
 .theme-toggle::before { content: ""; position: absolute; inset: -6px; }
-@media (hover: hover) {
-  .theme-toggle:hover { color: var(--heading); background: var(--header-hover); }
-}
 .theme-toggle:active {
   color: var(--heading);
   background: var(--header-hover);
   transform: scale(0.94);
   transition: transform 100ms ease-out;
 }
+.theme-toggle .icon { width: 18px; height: 18px; }
+.theme-toggle > span { display: inline-flex; }
 .theme-toggle .when-dark { display: none; }
 :root[data-theme="dark"] .theme-toggle .when-dark { display: inline-flex; }
 :root[data-theme="dark"] .theme-toggle .when-light { display: none; }
@@ -334,9 +338,14 @@ code {
 
 /* ---------- Profile sidebar ---------- */
 
-.profile {
-  position: sticky;
-  top: 104px;
+/* Stick only when the whole card fits under the bar (~104px + card height); on shorter
+   screens a stuck card would hide its own Email and CV links. Raise to ~43em if a fifth
+   profile link (ORCID, Google Scholar) is added. */
+@media (min-height: 41em) {
+  .profile {
+    position: sticky;
+    top: 104px;
+  }
 }
 
 .profile-photo {
@@ -347,7 +356,7 @@ code {
   object-fit: cover;
   object-position: center top;
   background: var(--photo-bg);
-  box-shadow: 0 0 0 1px var(--rule), 0 0 0 6px var(--bg), 0 0 0 8px var(--gold);
+  box-shadow: 0 0 0 1px var(--rule), 0 0 0 6px var(--bg), 0 0 0 8px var(--accent);
   margin: 8px 0 1.5rem 8px;
 }
 
@@ -388,7 +397,6 @@ code {
 }
 .profile-meta .icon { margin-top: 0.12em; }
 .profile-meta a { color: var(--text); text-decoration: none; }
-.profile-meta a:hover { color: var(--link); }
 
 .profile-links {
   margin-top: 1.25rem;
@@ -403,9 +411,8 @@ code {
   color: var(--text);
   text-decoration: none;
 }
-.profile-links a:hover { color: var(--link); }
-.profile-links .icon { color: var(--muted); }
-.profile-links a:hover .icon { color: var(--link); }
+/* The icon fades with its label */
+.profile-links .icon { color: var(--muted); transition: color 150ms ease-out; }
 
 /* ---------- Page elements ---------- */
 
@@ -474,7 +481,7 @@ code {
 .pub {
   margin: 0 0 1.4rem;
   padding-left: 1rem;
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--accent);
 }
 
 .pub p { margin: 0; }
@@ -504,7 +511,29 @@ code {
   text-decoration: none;
   font-weight: 500;
 }
-.tag-link:hover { background: var(--surface); border-color: var(--link-underline); }
+
+.pub-abstract[open] { flex-basis: 100%; }
+.pub-abstract > summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+.pub-abstract > summary::-webkit-details-marker { display: none; }
+.pub-abstract > summary::before { content: ""; position: absolute; inset: -9px -4px; }
+.pub-abstract > summary:active { opacity: 0.6; transition: opacity 0s; }
+.pub-abstract[open] > summary { background: var(--surface); border-color: var(--link-underline); }
+.pub-abstract > p {
+  margin: 0.6rem 0 0.2rem;
+  max-width: 40rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+/* Opens with a short fade, closes instantly; browsers without ::details-content just open */
+.pub-abstract::details-content { opacity: 0; }
+.pub-abstract[open]::details-content {
+  opacity: 1;
+  transition: opacity 150ms ease-out, content-visibility 150ms allow-discrete;
+}
 
 /* ---------- Footer ---------- */
 
@@ -541,7 +570,7 @@ code {
     width: 96px;
     height: 96px;
     margin: 5px;
-    box-shadow: 0 0 0 1px var(--rule), 0 0 0 3px var(--bg), 0 0 0 5px var(--gold);
+    box-shadow: 0 0 0 1px var(--rule), 0 0 0 3px var(--bg), 0 0 0 5px var(--accent);
   }
 
   .profile-name { font-size: 1.35rem; }
@@ -562,6 +591,13 @@ code {
 }
 
 @media (max-width: 40em) {
+  html { scroll-padding-top: 7rem; } /* two-row bar + fade */
+
+  .profile-links {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 2rem;
+  }
 
   .masthead-inner {
     flex-wrap: wrap;
@@ -591,9 +627,21 @@ code {
   .entry-head { flex-direction: column; gap: 0; }
 }
 
+/* Hover is for devices that can hover; touch gets :active feedback instead */
+@media (hover: hover) {
+  a:hover { text-decoration-color: currentColor; }
+  .site-nav a:hover { color: var(--heading); }
+  .theme-toggle:hover { color: var(--heading); background: var(--header-hover); }
+  .profile-meta a:hover,
+  .profile-links a:hover,
+  .profile-links a:hover .icon { color: var(--link); }
+  .tag-link:hover { background: var(--surface); border-color: var(--link-underline); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
   .theme-toggle:active { transform: none; }
+  .pub-abstract[open]::details-content { transition: none; }
 }
 
 @media (prefers-contrast: more) {
@@ -625,3 +673,21 @@ code {
 ::view-transition-group(root),
 ::view-transition-old(root),
 ::view-transition-new(root) { animation-duration: 200ms; }
+
+/* ---------- Print ---------- */
+
+.print-only { display: none; }
+
+@media print {
+  @page { margin: 16mm; }
+  .masthead, .skip-link, .scroll-sentinel, .no-print { display: none !important; }
+  .print-only { display: inline; }
+  .layout { padding: 0; gap: 24px; }
+  .profile { position: static; }
+  a { color: inherit; text-decoration: none; }
+  .profile-links a[data-print] > span { display: none; }
+  .profile-links a[data-print]::after { content: attr(data-print); }
+  h2 { break-after: avoid; }
+  .pub, .entry { break-inside: avoid; }
+  .pub-abstract:not([open]) { display: none; }
+}

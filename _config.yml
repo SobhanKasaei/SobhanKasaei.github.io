@@ -6,6 +6,7 @@ description: >-
 url: "https://sobhankasaei.github.io"
 baseurl: ""
 lang: en
+locale: en_US
 
 author:
   name: Sobhan Kasaei
@@ -46,6 +47,14 @@ defaults:
       path: ""
     values:
       layout: page
+      # Link previews (LinkedIn, Telegram, email): a small square portrait card
+      image:
+        path: /assets/img/profile.jpg
+        width: 400
+        height: 400
+        alt: Sobhan Kasaei
+      twitter:
+        card: summary
   - scope:
       path: "google4c197dcacc471769.html"
     values:

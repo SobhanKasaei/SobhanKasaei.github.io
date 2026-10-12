@@ -12,7 +12,7 @@
     </main>
   </div>
   <footer class="site-footer">
-    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }} &middot; Last updated {{ site.time | date: "%B %Y" }}</p>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }} &middot; Last updated {{ site.time | date: "%B %Y" }}<span class="print-only"> &middot; {{ site.url | remove: "https://" }}</span></p>
   </footer>
   <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/masthead.js' | relative_url }}"></script>

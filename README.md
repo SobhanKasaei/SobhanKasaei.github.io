@@ -12,11 +12,12 @@ Most content lives in YAML files, so an update is usually a one-line edit:
 | Name, links, photo, CV path | `_config.yml` (`author:`) |
 | Navigation menu | `_config.yml` (`navigation:`) |
 | Bio and research interests | `index.md` |
-| Papers | `_data/publications.yml` |
+| Papers (status, optional venue and abstract) | `_data/publications.yml` |
 | Education | `_data/education.yml` |
 | CV | replace `files/SobhanKasaei_CV.pdf` |
 
 To add a Google Scholar link, uncomment `google_scholar:` in `_config.yml`; the sidebar picks it up.
+An `abstract:` on a paper adds an "Abstract" button to it on the Publications page only.
 
 ## Running locally
 
