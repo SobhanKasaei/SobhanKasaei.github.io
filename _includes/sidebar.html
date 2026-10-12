@@ -1,0 +1,21 @@
+{%- assign a = site.author -%}
+<aside class="profile" aria-label="Profile">
+  <img class="profile-photo" src="{{ a.avatar | relative_url }}" alt="Photo of {{ a.name }}" width="400" height="400">
+  <div class="profile-text">
+    <p class="profile-name">{{ a.name }}</p>
+    <p class="profile-role">{{ a.role }}<br>{{ a.minor }}</p>
+    <ul class="profile-meta">
+      <li>{% include icon.html name="building" %}<a href="{{ a.affiliation_url }}">{{ a.affiliation }}</a></li>
+      <li>{% include icon.html name="pin" %}<span>{{ a.location }}</span></li>
+    </ul>
+  </div>
+  <ul class="profile-links">
+    <li><a href="mailto:{{ a.email }}">{% include icon.html name="mail" %}<span>Email</span></a></li>
+    {%- if a.google_scholar %}
+    <li><a href="{{ a.google_scholar }}">{% include icon.html name="scholar" %}<span>Google Scholar</span></a></li>
+    {%- endif %}
+    <li><a href="https://www.linkedin.com/in/{{ a.linkedin }}/">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a></li>
+    <li><a href="https://github.com/{{ a.github }}">{% include icon.html name="github" %}<span>GitHub</span></a></li>
+    <li><a href="{{ a.cv | relative_url }}">{% include icon.html name="cv" %}<span>CV (PDF)</span></a></li>
+  </ul>
+</aside>

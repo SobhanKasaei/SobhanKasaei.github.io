@@ -1,0 +1,22 @@
+<ol class="pub-list">
+  {%- for p in site.data.publications %}
+  <li class="pub">
+    <p class="pub-title">{% if p.paper %}<a href="{{ p.paper }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}</p>
+    <p class="pub-authors">
+      {%- for au in p.authors -%}
+        {%- if au == "S. Kasaei" -%}<strong>{{ au }}</strong>{%- else -%}{{ au }}{%- endif -%}
+        {%- unless forloop.last -%}, {% endunless -%}
+      {%- endfor -%}
+    </p>
+    <p class="pub-venue"><em>{{ p.status }}</em>, {{ p.year }}</p>
+    {%- if p.arxiv or p.ssrn or p.code or p.slides %}
+    <p class="pub-links">
+      {%- if p.arxiv %}<a class="tag-link" href="{{ p.arxiv }}">arXiv</a>{% endif -%}
+      {%- if p.ssrn %}<a class="tag-link" href="{{ p.ssrn }}">SSRN</a>{% endif -%}
+      {%- if p.code %}<a class="tag-link" href="{{ p.code }}">Code</a>{% endif -%}
+      {%- if p.slides %}<a class="tag-link" href="{{ p.slides }}">Slides</a>{% endif -%}
+    </p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ol>
