@@ -1,0 +1,18 @@
+<header class="masthead">
+  <div class="masthead-inner">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav" aria-label="Main">
+      {%- for item in site.navigation %}
+        {%- assign is_current = false %}
+        {%- if item.url == "/" and page.url == "/" %}{% assign is_current = true %}
+        {%- elsif item.url != "/" and page.url contains item.url %}{% assign is_current = true %}
+        {%- endif %}
+        <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {%- endfor %}
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <span class="when-light">{% include icon.html name="moon" %}</span>
+      <span class="when-dark">{% include icon.html name="sun" %}</span>
+    </button>
+  </div>
+</header>

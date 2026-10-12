@@ -1,0 +1,11 @@
+---
+layout: default
+---
+{%- assign heading = page.heading | default: page.title %}
+{%- if heading %}
+<h1 class="page-title">{{ heading }}</h1>
+{%- endif %}
+{%- if page.lead %}
+<p class="lead">{{ page.lead }}</p>
+{%- endif %}
+{{ content }}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+{% include head.html %}
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include masthead.html %}
+  <div class="layout">
+    {% include sidebar.html %}
+    <main id="main" class="content">
+      {{ content }}
+    </main>
+  </div>
+  <footer class="site-footer">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }} &middot; Last updated {{ site.time | date: "%B %Y" }}</p>
+  </footer>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+</html>

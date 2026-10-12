@@ -1,0 +1,23 @@
+- degree: B.Sc. in Industrial Engineering
+  institution: Sharif University of Technology
+  url: https://en.sharif.edu/
+  location: Tehran, Iran
+  dates: Oct 2021 – Sep 2026
+  details:
+    - "CGPA: 19.03/20 (3.96/4.0)"
+    - "Last-year GPA: 19.75/20 (4.0/4.0)"
+
+- degree: Minor in Economics
+  institution: Sharif University of Technology
+  url: https://en.sharif.edu/
+  location: Tehran, Iran
+  dates: Aug 2023 – Sep 2026
+  details:
+    - "CGPA: 19.62/20 (4.0/4.0)"
+
+- degree: Diploma in Physics & Mathematics
+  institution: NODET (Sampad)
+  location: Tehran, Iran
+  dates: Jun 2018 – Jun 2021
+  details:
+    - "CGPA: 18.86/20"
