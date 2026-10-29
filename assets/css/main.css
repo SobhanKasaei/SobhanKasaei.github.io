@@ -669,10 +669,13 @@ code {
   .theme-toggle { display: none; }
 }
 
-/* Theme switch: one 200ms cross-fade instead of an instant white <-> dark jump */
+/* Theme switch: one 400ms cross-fade instead of an instant white <-> dark jump */
 ::view-transition-group(root),
 ::view-transition-old(root),
-::view-transition-new(root) { animation-duration: 200ms; }
+::view-transition-new(root) {
+  animation-duration: 400ms;
+  animation-timing-function: ease-in-out;
+}
 
 /* ---------- Print ---------- */
 
